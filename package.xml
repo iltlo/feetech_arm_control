@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>arm_control</name>
+  <version>0.0.0</version>
+  <description>Arm control package</description>
+  <maintainer email="iltlo@connect.hku.hk">iltlo</maintainer>
+  <license>Apache License 2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>python3</buildtool_depend>
+
+  <build_depend>rclpy</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
