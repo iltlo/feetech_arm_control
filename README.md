@@ -1,6 +1,6 @@
 # Feetech Arm Control
 
-This repository provides a ROS2 hardware interface, URDF model, and MoveIt configuration for controlling an open source 6-DoF robotic arm using Feetech motors.
+This repository provides a ROS2 hardware interface, URDF model, and MoveIt configuration for controlling a 6-DoF robotic arm using Feetech motors. The 3D model is currently in beta and pending open-source release by [Simple Automation](www.SimpleAutomation.ai).
 
 ![Control Demo](docs/images/control_demo.gif)
 
