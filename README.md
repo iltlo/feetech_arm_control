@@ -38,6 +38,21 @@ To run with the actual hardware (Optional):
 ros2 run arm_control hardware_interface
 ```
 
+Note: If the scservo_sdk directory does not automatically add to the Python path, you can check if PYTHONPATH is correctly set by running:
+```bash
+# Check if PYTHONPATH is set correctly
+echo $PYTHONPATH
+
+# If the output is empty or does not contain the correct path, you need to manually add it. First, find your actual site-packages directory by running:
+python -c "import site; print(site.getsitepackages())"
+
+# Once you have the correct path, add it to your environment:
+nano ~/.bashrc
+export PYTHONPATH=/path/anaconda3/envs/lerobotc/lib/python3.10/site-packages:$PYTHONPATH
+source ~/.bashrc
+
+```
+
 ![moveit-screenshot](docs/images/moveit_demo.png)
 
 ### Display in RViz
