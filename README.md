@@ -30,7 +30,7 @@ This repository provides a ROS2 hardware interface, URDF model, and MoveIt confi
 
 To run the MoveIt 2 demo for End Effector drag-and-drop control:
 ```bash
-ros2 launch moveit_6dof_arm demo.launch.py
+ros2 launch moveit_6dof_arm feetech_moveit.launch.py
 ```
 
 To run with the actual hardware (Optional):
