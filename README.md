@@ -30,21 +30,27 @@ This repository provides a ROS2 hardware interface, URDF model, and MoveIt confi
 
 To run the MoveIt 2 demo for End Effector drag-and-drop control:
 ```bash
-ros2 launch moveit_6dof_arm feetech_moveit.launch.py
+ros2 launch arm_moveit_config feetech_moveit.launch.py
+```
+
+To use a GUI for controlling the arm pose:
+```bash
+ros2 launch arm_controller ee_goal_control.launch.py
 ```
 
 To run with the actual hardware (Optional):
 ```bash
-ros2 run arm_control hardware_interface
+ros2 run arm_hardware_interface hardware_interface
 ```
 
 ![moveit-screenshot](docs/images/moveit_demo.png)
+![gui-screenshot](docs/images/set_pose_gui.png)
 
 ### Display in RViz
 
 To display the robot model in RViz:
 ```bash
-ros2 launch urdf_6dof_arm display.launch.py
+ros2 launch arm_description display.launch.py
 ```
 
 ![rviz-screenshot](docs/images/rviz_joint_state_pub.png)
