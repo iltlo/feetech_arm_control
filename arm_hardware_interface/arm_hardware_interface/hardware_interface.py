@@ -1,7 +1,7 @@
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import JointState
-from arm_control.motors.feetech import FeetechMotorsBus
+from arm_hardware_interface.motors.feetech import FeetechMotorsBus
 
 class HardwareInterface(Node):
     def __init__(self):
@@ -50,8 +50,7 @@ class HardwareInterface(Node):
         joint_positions = []
         for name, position in zip(msg.name, msg.position):
             if name in self.motor_names:
-                if name not in ["Joint_4", "Joint_Gripper"]:
-                    position = -position  # Reverse the direction for Joint 2 and Joint 3
+                position = -position
                 motor_value = int((position + 3.14) * (4095 / (2 * 3.14)))  # Convert radians to motor value
                 self.motors_bus.write("Goal_Position", motor_value, name)
                 # self.get_logger().info(f"Joint states: {self.motors_bus.read('Torque_Enable', name)}")

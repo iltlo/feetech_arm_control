@@ -1,7 +1,7 @@
 from setuptools import setup
 from setuptools import find_packages
 
-package_name = 'arm_control'
+package_name = 'arm_hardware_interface'
 
 setup(
     name=package_name,
@@ -15,13 +15,13 @@ setup(
     zip_safe=True,
     maintainer='iltlo',
     maintainer_email='iltlo@connect.hku.hk',
-    description='Arm control package',
+    description='Hardware Interface package',
     license='Apache License 2.0',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'joint_pos_control = arm_control.joint_pos_control:main',
-            'hardware_interface = arm_control.hardware_interface:main',
+            'joint_pos_control = arm_hardware_interface.joint_pos_control:main',
+            'hardware_interface = arm_hardware_interface.hardware_interface:main',
         ],
     },
 )

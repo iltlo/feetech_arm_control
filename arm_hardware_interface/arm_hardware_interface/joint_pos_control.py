@@ -1,4 +1,4 @@
-from arm_control.motors.feetech import FeetechMotorsBus
+from arm_hardware_interface.motors.feetech import FeetechMotorsBus
 import tkinter as tk
 from tkinter import ttk
 import matplotlib.pyplot as plt
@@ -59,7 +59,7 @@ def configure_motors(motors_bus, motor_names):
 
 def main():
     motors_bus = FeetechMotorsBus(
-        port="/dev/ttyACM1",
+        port="/dev/ttyACM0",
         motors={},
     )
     motors_bus.connect()

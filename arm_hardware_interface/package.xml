@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="3">
-  <name>arm_control</name>
+  <name>arm_hardware_interface</name>
   <version>0.0.0</version>
   <description>Arm control package</description>
   <maintainer email="iltlo@connect.hku.hk">iltlo</maintainer>
