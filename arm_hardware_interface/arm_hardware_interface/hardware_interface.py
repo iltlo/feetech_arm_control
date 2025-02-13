@@ -47,18 +47,21 @@ class HardwareInterface(Node):
         self.get_logger().info(f"Torque {'enabled' if enable else 'disabled'} for all motors.")
 
     def joint_state_callback(self, msg):
-        joint_positions = []
+        motor_ids = []
+        motor_values = []
+        motor_models = []
+
         for name, position in zip(msg.name, msg.position):
             if name in self.motor_names:
-                position = -position
-                motor_value = int((position + 3.14) * (4095 / (2 * 3.14)))  # Convert radians to motor value
-                self.motors_bus.write("Goal_Position", motor_value, name)
-                # self.get_logger().info(f"Joint states: {self.motors_bus.read('Torque_Enable', name)}")
-                joint_positions.append((name, motor_value))
-        
-        # Sort joint positions by joint name
-        joint_positions.sort(key=lambda x: self.joint_to_motor_id[x[0]])
-        self.get_logger().info(f"Joint positions: {joint_positions}")
+                motor_id = self.joint_to_motor_id[name]
+                motor_value = int((-position + 3.14) * (4095 / (2 * 3.14)))  # Convert radians to motor value
+                motor_ids.append(motor_id)
+                motor_values.append(motor_value)
+                motor_models.append("sts3215")
+
+        if motor_ids:
+            self.motors_bus.write_with_motor_ids(motor_models, motor_ids, "Goal_Position", motor_values)
+            self.get_logger().info(f"Joint positions: {list(zip(msg.name, motor_values))}")
 
 def main(args=None):
     rclpy.init(args=args)
