@@ -17,7 +17,7 @@ class HardwareInterface(Node):
         self.timer = self.create_timer(0.02, self.publish_real_joint_states)  # 0.02 -> 50 Hz
 
         self.motors_bus = FeetechMotorsBus(
-            port="/dev/ttyACM0",
+            port="/dev/ttyARM0",
             motors={},
         )
         self.motors_bus.connect()

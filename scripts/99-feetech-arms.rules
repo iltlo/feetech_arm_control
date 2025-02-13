@@ -1,0 +1,11 @@
+# Place this file in /etc/udev/rules.d/
+# Then reload udev by typing 'udevadm control --reload-rules && udevadm trigger'
+# Sets up rules to give permanent names to devices
+
+# Allow all users to access the device
+KERNEL=="ttyUSB*", MODE:="0666"
+KERNEL=="ttyACM*", MODE:="0666"
+
+# Assign a fixed symlink for Feetech Arms
+# Using WaveShare Serial Bus Driver Board: https://www.waveshare.com/bus-servo-adapter-a.htm
+SUBSYSTEM=="tty", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="55d3", ENV{ID_MM_DEVICE_IGNORE}="1", GROUP:="dialout", SYMLINK+="ttyARM%n"

@@ -59,7 +59,7 @@ def configure_motors(motors_bus, motor_names):
 
 def main():
     motors_bus = FeetechMotorsBus(
-        port="/dev/ttyACM0",
+        port="/dev/ttyARM0",
         motors={},
     )
     motors_bus.connect()
