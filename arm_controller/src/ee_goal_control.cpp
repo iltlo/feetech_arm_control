@@ -22,7 +22,7 @@ public:
     // Use rclcpp::Node's shared_from_this() directly
     move_group_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(shared_from_this(), "arm");
     // Explicitly set the end-effector link (change "link_6" to your actual EE link)
-    move_group_->setEndEffectorLink("Link_6"); 
+    move_group_->setEndEffectorLink("EE_Gripper_Link"); 
   }
 
 private:
