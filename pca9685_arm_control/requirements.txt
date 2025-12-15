@@ -1,0 +1,20 @@
+# PCA9685 Arm Control - Python Dependencies
+#
+# Install with: pip install -r requirements.txt
+#
+# Note: Some packages require I2C to be enabled on Raspberry Pi
+# Run: sudo raspi-config -> Interface Options -> I2C -> Enable
+
+# Adafruit CircuitPython libraries for PCA9685
+adafruit-circuitpython-pca9685>=3.4.0
+adafruit-circuitpython-servokit>=1.3.0
+
+# Board and I2C support
+adafruit-blinka>=8.0.0
+board>=1.0
+
+# Optional but recommended
+RPi.GPIO>=0.7.1  # Only on Raspberry Pi
+
+# Note: If you're running in simulation mode only,
+# you don't need these hardware libraries.
